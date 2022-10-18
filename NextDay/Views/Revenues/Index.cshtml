@@ -1,0 +1,54 @@
+﻿@model IEnumerable<NextDay.Models.Revenue>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-success py-3">Revenues</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success float-end"><i class="fa-solid fa-folder-plus"></i>Create New</a>
+</p>
+<br />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr class="text-success">
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner)
+            </th>
+            <th>
+                Amount in ETB
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-info"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary"><i class="fa-solid fa-eye"></i>Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i>Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

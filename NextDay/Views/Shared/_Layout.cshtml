@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NextDay</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NextDay.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- Choices CSS-->
+    <link rel="stylesheet" href="~/vendor/choices.js/public/assets/styles/choices.min.css">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="~/vendor/overlayscrollbars/css/OverlayScrollbars.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="~/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="~/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+<body>
+    <nav class="side-navbar">
+        <!-- Sidebar Header    -->
+        <div class="sidebar-header d-flex align-items-center justify-content-center p-3 mb-3">
+            <!-- User Info-->
+            <div class="sidenav-header-inner text-center">
+                <img class="img-fluid rounded-circle avatar mb-3" src="~/img/avatar-7.jpg" alt="person">
+                <h2 class="h5 text-white text-uppercase mb-0">Abirham Yo</h2>
+                <p class="text-sm mb-0 text-muted">Web Developer</p>
+            </div>
+            <!-- Small Brand information, appears on minimized sidebar--><a class="brand-small text-center" href="index.html">
+                <p class="h1 m-0">ET</p>
+            </a>
+        </div>
+        <ul class="list-unstyled">
+            <li class="sidebar-item">
+                <a class="sidebar-link  text-white" asp-controller="Home" asp-action="Index">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2 text-success">
+                        <use xlink:href="#real-estate-1"> </use>
+                    </svg>Dashboard
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white" asp-controller="Revenues" asp-action="Index">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2 text-warning">
+                        <use xlink:href="#sales-up-1"> </use>
+                    </svg>Activity
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white" asp-controller="Revenues" asp-action="Create">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2 text-info">
+                        <use xlink:href="#survey-1"> </use>
+                    </svg>Revenue
+                </a>
+            </li>
+           
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white" href="#">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2 text-primary">
+                        <use xlink:href="#portfolio-grid-1"> </use>
+                    </svg>Sttings
+                </a>
+            </li>
+          
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white" href="#">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2 text-danger">
+                        <use xlink:href="#disable-1"> </use>
+                    </svg>Logout
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link text-white" href="#!">
+                    <svg class="svg-icon svg-icon-xs svg-icon-heavy me-xl-2 text-success">
+                        <use xlink:href="#imac-screen-1"> </use>
+                    </svg>Meeting
+                    <div class="badge bg-warning">6 New</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="page">
+        <header class="header">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div class="d-flex align-items-center">
+                            <a class="menu-btn d-flex align-items-center justify-content-center p-2 bg-gray-900" id="toggle-btn" href="#">
+                                <svg class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                                    <use xlink:href="#menu-1"> </use>
+                                </svg>
+                            </a><a class="navbar-brand ms-2" asp-controller="Home" asp-action="Index">
+                                <img class="navbar-brand" height="50" src="~/img/ethio-flag.png" alt="FlyEthiopian">
+                                <div class="brand-text d-none d-md-inline-block text-uppercase text-white letter-spacing-1">Ethiopian Airlines Revenue Management System</div>
+                            </a>
+                        </div>
+                        <ul class="nav-menu mb-0 list-unstyled d-flex flex-md-row align-items-md-center">
+                            <li class="nav-item">
+                                <a class="nav-link text-white text-sm ps-0" href="login.html">
+                                    <span class="d-none d-sm-inline-block">Logout</span>
+                                    <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                                        <use xlink:href="#security-1"> </use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - NextDay - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <!-- JavaScript files-->
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/vendor/just-validate/js/just-validate.min.js"></script>
+    <script src="~/vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="~/vendor/overlayscrollbars/js/OverlayScrollbars.min.js"></script>
+    <script src="~/js/charts-home.js"></script>
+    <!-- Main File-->
+    <script src="~/js/front.js"></script>
+    <script>
+        // ------------------------------------------------------- //
+        //   Inject SVG Sprite -
+        //   see more here
+        //   https://css-tricks.com/ajaxing-svg-sprite/
+        // ------------------------------------------------------ //
+        function injectSvgSprite(path) {
+
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", path, true);
+            ajax.send();
+            ajax.onload = function (e) {
+                var div = document.createElement("div");
+                div.className = 'd-none';
+                div.innerHTML = ajax.responseText;
+                document.body.insertBefore(div, document.body.childNodes[0]);
+            }
+        }
+        // this is set to BootstrapTemple website as you cannot
+        // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
+        // while using file:// protocol
+        // pls don't forget to change to your domain :)
+        injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
+
+
+    </script>
+    <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</body>
+</html>
